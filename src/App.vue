@@ -1,20 +1,9 @@
-<!-- <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-</script>
-
-<template>
-
-
-  <RouterView />
-</template>
-
-<style scoped></style> -->
 
 <template>
   <a-layout>
-    <a-layout-sider v-model:collapsed="collapsed" :trigger="null" collapsible>
+    <a-layout-sider v-model:collapsed="collapsed" theme="light" :trigger="null" collapsible>
       <div class="logo" />
-      <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
+      <a-menu v-model:selectedKeys="selectedKeys" theme="light" mode="inline">
         <a-menu-item key="1">
           <user-outlined />
           <span>nav 1</span>
@@ -30,8 +19,8 @@ import { RouterLink, RouterView } from 'vue-router'
       </a-menu>
     </a-layout-sider>
     <a-layout>
-      <a-layout-header style="background: #fff; padding: 0">
-        <menu-unfold-outlined v-if="collapsed" class="trigger" @click="() => (collapsed = !collapsed)" />
+      <a-layout-header style="background: #fff; padding: 0px 20px">
+        <menu-unfold-outlined v-if="collapsed" class="triggpxer" @click="() => (collapsed = !collapsed)" />
         <menu-fold-outlined v-else class="trigger" @click="() => (collapsed = !collapsed)" />
       </a-layout-header>
       <a-layout-content :style="{ margin: '24px 16px', padding: '24px', background: '#fff', minHeight: '280px' }">
@@ -40,8 +29,15 @@ import { RouterLink, RouterView } from 'vue-router'
     </a-layout>
   </a-layout>
 </template>
-<script>
+<script setup>
 import { ref } from 'vue';
+import {
+  UserOutlined,
+  VideoCameraOutlined,
+  UploadOutlined,
+  MenuUnfoldOutlined,
+  MenuFoldOutlined,
+} from '@ant-design/icons-vue';
 const selectedKeys = ref(['1']);
 const collapsed = ref(false);
 </script>
@@ -68,3 +64,4 @@ const collapsed = ref(false);
   background: #fff;
 }
 </style>
+
