@@ -30,11 +30,8 @@ const {
 })
 const onSubmit = createSubmitHandler((data) => {
     console.log(data)
-    Cookies.set('currentUser', JSON.stringify(data), {
-        sameSite: 'strict'
-        // expires: 90
-        // expires: 5 / (24 * 60 * 60) // 5 secondas
-    });
+    // save user in cookies
+    Cookies.set('currentUser', JSON.stringify(data));
     router.push('/')
 })
 
