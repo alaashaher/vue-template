@@ -11,6 +11,7 @@ const router = createRouter({
       name: 'home',
       component: HomeView,
       // guard route
+      meta: { layout: 'AppLayoutAdmin' },
       beforeEnter() {
         if (Cookies.get('currentUser') || sessionStorage.getItem('currentUser')) {
         } else {
