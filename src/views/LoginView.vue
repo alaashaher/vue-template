@@ -1,6 +1,12 @@
 <script setup>
 import { createErrorHandler, createSubmitHandler, useForm } from 'vue-use-form'
 import * as yup from 'yup'
+import Cookies from 'js-cookie';
+
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
 // import { useYupResolver } from '@vue-use-form/yup'
 
 // const schema = yup.object().shape({
@@ -24,6 +30,12 @@ const {
 })
 const onSubmit = createSubmitHandler((data) => {
     console.log(data)
+    Cookies.set('currentUser', JSON.stringify(data), {
+        sameSite: 'strict'
+        // expires: 90
+        // expires: 5 / (24 * 60 * 60) // 5 secondas
+    });
+    router.push('/')
 })
 
 const onError = createErrorHandler((errors) => {
